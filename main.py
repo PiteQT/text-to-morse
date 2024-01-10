@@ -15,9 +15,15 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     '(':'-.--.', ')':'-.--.-'}
 
 
-
-
+def text_to_morse(text):
+    morse_code = ""
+    for letter in text:
+        if letter in MORSE_CODE_DICT:
+            morse_code += MORSE_CODE_DICT[letter]
+        else:
+            return print(f"The character {letter} can't be turned into morse code!")
+    return print(morse_code)
 
 
 message = input("Please type the message you want to turn into morse code: ")
-text_to_morse(text=message)
+text_to_morse(text=message.upper())
