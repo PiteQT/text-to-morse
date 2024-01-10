@@ -17,12 +17,16 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 
 def text_to_morse(text):
     morse_code = ""
+    not_in_dict = ""
     for letter in text:
         if letter in MORSE_CODE_DICT:
             morse_code += MORSE_CODE_DICT[letter]
         else:
-            return print(f"The character {letter} can't be turned into morse code!")
-    return print(morse_code)
+            not_in_dict += letter
+    if not not_in_dict:
+        return print(morse_code)
+    else:
+        return print(f"The following can't be turned into morse code: {not_in_dict}")
 
 
 message = input("Please type the message you want to turn into morse code: ")
