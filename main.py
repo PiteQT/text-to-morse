@@ -16,6 +16,7 @@ MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 
 
 def text_to_morse(text):
+    global not_translated
     morse_code = ""
     not_in_dict = ""
     for letter in text:
@@ -24,10 +25,13 @@ def text_to_morse(text):
         else:
             not_in_dict += letter
     if not not_in_dict:
+        not_translated = False
         return print(morse_code)
     else:
         return print(f"The following can't be turned into morse code: {not_in_dict}")
 
 
-message = input("Please type the message you want to turn into morse code: ")
-text_to_morse(text=message.upper())
+not_translated = True
+while not_translated:
+    message = input("Please type the message you want to turn into morse code: ")
+    text_to_morse(text=message.upper())
